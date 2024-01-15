@@ -1,0 +1,24 @@
+{
+  "require": {
+    "php-webdriver/webdriver": "^1.11",
+    "phpunit/phpunit": "^9.5",
+    "ext-curl": "*"
+  },
+  "scripts": {
+    "unit": "vendor/bin/phpunit --testsuite unit",
+    "integration": "vendor/bin/phpunit --testsuite integration",
+    "smoke": "vendor/bin/phpunit --testsuite smoke",
+    "e2e": "vendor/bin/phpunit --testsuite e2e",
+    "coverage": "vendor/bin/php-coverage-checker build/logs/clover.xml 100",
+    "static-analyze": "vendor/bin/phpstan analyse --level=max src tests",
+    "style": "vendor/bin/ecs check",
+    "style-fix": "vendor/bin/ecs check --fix",
+    "check-all": "composer validate && composer style && composer static-analyze && composer unit"
+  },
+  "autoload": {
+    "psr-4": {
+      "Otis22\\BeerMeetup\\": "src/",
+      "Src\\Module\\": "tests/Src/Module/"
+    }
+  }
+}
