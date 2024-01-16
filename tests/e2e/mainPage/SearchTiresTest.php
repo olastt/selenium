@@ -1,6 +1,6 @@
 <?php
 
-namespace e2e;
+namespace e2e\mainPage;
 
 use Facebook\WebDriver\Chrome\ChromeOptions;
 use Facebook\WebDriver\Exception\NoSuchElementException;

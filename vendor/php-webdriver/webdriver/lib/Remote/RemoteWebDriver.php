@@ -16,8 +16,9 @@ use Facebook\WebDriver\WebDriverHasInputDevices;
 use Facebook\WebDriver\WebDriverNavigation;
 use Facebook\WebDriver\WebDriverOptions;
 use Facebook\WebDriver\WebDriverWait;
+use Src\Module\Search;
 
-class RemoteWebDriver implements WebDriver, JavaScriptExecutor, WebDriverHasInputDevices
+class RemoteWebDriver extends Search implements WebDriver, JavaScriptExecutor, WebDriverHasInputDevices
 {
     /**
      * @var HttpCommandExecutor|null
@@ -52,7 +53,7 @@ class RemoteWebDriver implements WebDriver, JavaScriptExecutor, WebDriverHasInpu
      * @var bool
      */
     protected $isW3cCompliant;
-    private $driver;
+    protected $driver;
 
     /**
      * @param string $sessionId

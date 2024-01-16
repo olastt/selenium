@@ -24,16 +24,18 @@ class Search
     public function clickByXpath($xpath)
     {
         $wait = new WebDriverWait($this->driver, 10); // 10 секунд ожидания
-        $element = $wait->until(
-            WebDriverExpectedCondition::presenceOfElementLocated(WebDriverBy::xpath($xpath))
-        );
+        try {
+            $element = $wait->until(
+                WebDriverExpectedCondition::presenceOfElementLocated(WebDriverBy::xpath($xpath))
+            );
 
-        if ($element) {
+            // Продолжайте выполнение кода только если элемент был найден
             $element->click();
-        } else {
+        } catch (NoSuchElementException $e) {
             // Обработка ситуации, когда элемент не был найден
             throw new NoSuchElementException("Element not found for xpath: $xpath");
         }
     }
+
 
 }
